@@ -32,4 +32,5 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
         HttpVersion.HTTP_1_1, HttpResponseStatus.CONTINUE);
     ctx.writeAndFlush(response);
   }
+
 }
