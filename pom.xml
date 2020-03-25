@@ -11,6 +11,7 @@
   <modules>
     <module>netty-websocket</module>
     <module>hello-world</module>
+    <module>future-listener</module>
   </modules>
   <dependencies>
     <dependency>
