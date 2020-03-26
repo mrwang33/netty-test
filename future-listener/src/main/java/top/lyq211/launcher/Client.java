@@ -12,15 +12,14 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.CharsetUtil;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
+import java.io.IOException;
 
 /**
  * @author wanghuan
  */
 public class Client {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     ChannelFuture future = new Bootstrap().group(new NioEventLoopGroup())
         .channel(NioSocketChannel.class).handler(new ChannelInitializer<Channel>() {
           protected void initChannel(Channel ch) throws Exception {
