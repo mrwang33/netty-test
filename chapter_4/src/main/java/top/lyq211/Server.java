@@ -23,8 +23,8 @@ public class Server {
   public static void main(String[] args) throws InterruptedException {
 //    NioEventLoopGroup group = new NioEventLoopGroup();
     // 只要将group与channel改掉就可以实现OIO传输
-     OioEventLoopGroup group = new OioEventLoopGroup();
-     Class<OioServerSocketChannel> channelClass = OioServerSocketChannel.class;
+    OioEventLoopGroup group = new OioEventLoopGroup();
+    Class<OioServerSocketChannel> channelClass = OioServerSocketChannel.class;
 //    Class<NioServerSocketChannel> channelClass = NioServerSocketChannel.class;
 
     new ServerBootstrap().group(group).channel(channelClass).childHandler(
@@ -34,12 +34,10 @@ public class Server {
               @Override
               public void channelActive(ChannelHandlerContext ctx) throws Exception {
                 ByteBuf byteBuf = Unpooled.copiedBuffer("hello!", CharsetUtil.UTF_8);
-                ctx.writeAndFlush(byteBuf).addListener(new ChannelFutureListener() {
-                  public void operationComplete(ChannelFuture future) throws Exception {
-                    if (future.isSuccess()) {
-                      System.out.println("消息发送成功 bye bye");
-                      future.channel().close();
-                    }
+                ctx.writeAndFlush(byteBuf).addListener((ChannelFutureListener) future -> {
+                  if (future.isSuccess()) {
+                    System.out.println("消息发送成功 bye bye");
+                    future.channel().close();
                   }
                 });
               }
@@ -50,11 +48,9 @@ public class Server {
               }
             });
           }
-        }).bind("localhost", 9999).sync().addListener(new ChannelFutureListener() {
-      public void operationComplete(ChannelFuture future) throws Exception {
-        if (future.isSuccess()) {
-          System.out.println("服务器启动完成");
-        }
+        }).bind("localhost", 9999).sync().addListener((ChannelFutureListener) future -> {
+      if (future.isSuccess()) {
+        System.out.println("服务器启动完成");
       }
     });
   }
