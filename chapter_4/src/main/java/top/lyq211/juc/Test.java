@@ -1,4 +1,4 @@
-package top.lyq211;
+package top.lyq211.juc;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
