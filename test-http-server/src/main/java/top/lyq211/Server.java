@@ -55,12 +55,9 @@ public class Server {
                   }
                 });
               }
-            }).bind(9003).sync().addListener(new ChannelFutureListener() {
-      @Override
-      public void operationComplete(ChannelFuture future) throws Exception {
-        if (future.isSuccess()) {
-          System.out.println("server started ! ");
-        }
+            }).bind(9003).sync().addListener((ChannelFutureListener) future -> {
+      if (future.isSuccess()) {
+        System.out.println("server started ! ");
       }
     });
   }
