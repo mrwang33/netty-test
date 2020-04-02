@@ -19,6 +19,7 @@
     <module>future-listener</module>
     <module>chapter_4</module>
     <module>test-http-server</module>
+    <module>static-file-server</module>
   </modules>
   <dependencies>
 	<!--netty依赖-->	  

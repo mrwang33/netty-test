@@ -32,7 +32,7 @@ public class Server {
           protected void initChannel(Channel ch) {
             ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
               @Override
-              public void channelActive(ChannelHandlerContext ctx) throws Exception {
+              public void channelActive(ChannelHandlerContext ctx) {
                 ByteBuf byteBuf = Unpooled.copiedBuffer("hello!", CharsetUtil.UTF_8);
                 ctx.writeAndFlush(byteBuf).addListener((ChannelFutureListener) future -> {
                   if (future.isSuccess()) {
