@@ -395,8 +395,13 @@ public class HttpStaticFileServerHandler extends SimpleChannelInboundHandler<Ful
    * @param file     file to extract content type
    */
   private static void setContentTypeHeader(HttpResponse response, File file) {
-    MimetypesFileTypeMap mimeTypesMap = new MimetypesFileTypeMap();
-    response.headers()
-        .set(HttpHeaderNames.CONTENT_TYPE, mimeTypesMap.getContentType(file.getPath()));
+    if (file.getName().contains(".mp4")) {
+      response.headers()
+          .set(HttpHeaderNames.CONTENT_TYPE, "video/mp4");
+    } else {
+      MimetypesFileTypeMap mimeTypesMap = new MimetypesFileTypeMap();
+      response.headers()
+          .set(HttpHeaderNames.CONTENT_TYPE, mimeTypesMap.getContentType(file.getPath()));
+    }
   }
 }
