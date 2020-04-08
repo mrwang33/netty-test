@@ -20,6 +20,7 @@
     <module>chapter_4</module>
     <module>test-http-server</module>
     <module>static-file-server</module>
+    <module>chapter7-event-loop</module>
   </modules>
   <dependencies>
 	<!--netty依赖-->	  
