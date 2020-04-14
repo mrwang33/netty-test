@@ -20,6 +20,17 @@ public class Server {
   public static void main(String[] args) throws InterruptedException {
     EventLoopGroup loopGroup = new NioEventLoopGroup();
     new ServerBootstrap().group(loopGroup).channel(NioServerSocketChannel.class)
+        .handler(new ChannelInitializer<Channel>() {
+          @Override
+          protected void initChannel(Channel ch) throws Exception {
+            ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
+              @Override
+              public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                System.out.println("Be careful it's trap !");
+              }
+            });
+          }
+        })
         .childHandler(new ChannelInitializer<Channel>() {
           @Override
           protected void initChannel(Channel ch) {
