@@ -34,7 +34,7 @@ public class Server {
               }
             });
           }
-        }).bind(9999);
+        }).bind(9990);
     channelFuture.syncUninterruptibly();
   }
 }
