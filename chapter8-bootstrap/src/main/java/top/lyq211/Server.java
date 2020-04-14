@@ -63,7 +63,7 @@ public class Server {
                     }).connect("127.0.0.1", 9990)
                     .addListener((ChannelFutureListener) future -> {
                       if (future.isSuccess()) {
-                        System.out.println("connect baidu success!");
+                        System.out.println("connect main server success!");
                       }
                     });
               }
