@@ -23,6 +23,7 @@
     <module>chapter7-event-loop</module>
     <module>chapter8-bootstrap</module>
     <module>chapter10-decoder-encoder</module>
+    <module>chapter11</module>
   </modules>
   <dependencies>
 	<!--netty依赖-->	  
