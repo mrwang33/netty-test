@@ -22,6 +22,7 @@
     <module>static-file-server</module>
     <module>chapter7-event-loop</module>
     <module>chapter8-bootstrap</module>
+    <module>chapter10-decoder-encoder</module>
   </modules>
   <dependencies>
 	<!--netty依赖-->	  
